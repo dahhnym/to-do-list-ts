@@ -5,6 +5,7 @@ export enum Categories {
   'TO_DO' = 'TO_DO',
   'DOING' = 'DOING',
   'DONE' = 'DONE',
+  'NEW_CATEGORY' = 'NEW_CATEGORY',
 }
 
 export interface IToDo {
