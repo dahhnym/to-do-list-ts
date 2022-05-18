@@ -1,5 +1,5 @@
 import React from 'react';
-import { IToDo, toDoState } from '../atoms';
+import { Categories, IToDo, toDoState } from '../atoms';
 import { useSetRecoilState } from 'recoil';
 
 const ToDo = ({ text, category, id }: IToDo) => {
@@ -11,7 +11,7 @@ const ToDo = ({ text, category, id }: IToDo) => {
     setToDos((oldToDos) => {
       const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
       const oldToDo = oldToDos[targetIndex];
-      const newToDo = { text, id, category: name as IToDo['category'] };
+      const newToDo = { text, id, category: name as Categories };
       console.log(oldToDo, newToDo);
       const newToDos = [...oldToDos];
       newToDos.splice(targetIndex, 1, newToDo);
@@ -21,18 +21,18 @@ const ToDo = ({ text, category, id }: IToDo) => {
   return (
     <li>
       <span>{text}</span>
-      {category !== 'DOING' && (
-        <button name="DOING" onClick={onClick}>
+      {category !== Categories.DOING && (
+        <button name={Categories.DOING} onClick={onClick}>
           Doing
         </button>
       )}
-      {category !== 'TO_DO' && (
-        <button name="TO_DO" onClick={onClick}>
+      {category !== Categories.TO_DO && (
+        <button name={Categories.TO_DO} onClick={onClick}>
           To do
         </button>
       )}
-      {category !== 'DONE' && (
-        <button name="DONE" onClick={onClick}>
+      {category !== Categories.DONE && (
+        <button name={Categories.DONE} onClick={onClick}>
           Done
         </button>
       )}
